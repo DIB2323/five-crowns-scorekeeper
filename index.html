@@ -14,9 +14,13 @@
 
 <div class="container">
 
-    <header>
-        <h1>👑 Five Crowns Scorekeeper</h1>
-    </header>
+   <header id="pageHeader">
+
+    <h1>
+        Five Crowns Scorekeeper
+    </h1>
+
+</header>
 
     <!-- ========================= -->
     <!-- Setup Screen              -->
@@ -85,31 +89,35 @@
 
             <div class="gameHeader">
 
-                <div>
-                    <div class="roundTitle">
-                        Current Round
-                    </div>
+    <div class="gameStatus">
 
-                    <div
-                        id="currentRound"
-                        class="roundValue">
-                        3
-                    </div>
-                </div>
+        <span class="statusLabel">
+            Round
+        </span>
 
-                <div>
-                    <div class="roundTitle">
-                        Wild Card
-                    </div>
+        <span
+            id="currentRound"
+            class="statusValue">
+            3
+        </span>
 
-                    <div
-                        id="wildCard"
-                        class="roundValue">
-                        3s
-                    </div>
-                </div>
+    </div>
 
-            </div>
+    <div class="gameStatus">
+
+        <span class="statusLabel">
+            Wild
+        </span>
+
+        <span
+            id="wildCard"
+            class="statusValue">
+            3s
+        </span>
+
+    </div>
+
+</div>
 <div id="gameMessage"></div>
 
 <div id="gameActions"></div>

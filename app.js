@@ -110,6 +110,8 @@ function showGameScreen() {
 
     gameScreen.classList.remove("hidden");
 
+    pageHeader.classList.add("hidden");
+
 }
 
 function showSetupScreen() {
@@ -119,6 +121,8 @@ function showSetupScreen() {
     setupScreen.classList.remove("hidden");
 
     updateContinueButton();
+
+    pageHeader.classList.remove("hidden");
 
 }
 //----------------------------------------------------

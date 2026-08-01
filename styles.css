@@ -238,3 +238,148 @@ button:disabled {
 #gameActions button {
     min-width: 180px;
 }
+/* ---------- iPhone ---------- */
+
+@media (max-width: 430px) {
+
+    body {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .card {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .gameHeader {
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .roundValue {
+        font-size: 1.3rem;
+    }
+
+    #scoreGrid th,
+    #scoreGrid td {
+        padding: 4px;
+    }
+
+    #scoreGrid th:first-child,
+    #scoreGrid td:first-child {
+        width: 78px;
+        padding-right: 8px;
+        font-size: 0.9rem;
+    }
+
+    .scoreInput {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        font-size: 1rem;
+    }
+
+    .setupButtons button,
+    #gameActions button {
+        width: 100%;
+        min-width: 0;
+    }
+
+}
+/* =====================================================
+   iPhone
+   ===================================================== */
+
+@media (max-width: 430px) {
+
+    body {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .card {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .gameHeader {
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .roundTitle {
+        font-size: 0.85rem;
+    }
+
+    .roundValue {
+        font-size: 1.3rem;
+    }
+
+    #scoreGrid th,
+    #scoreGrid td {
+        padding: 4px;
+    }
+
+    #scoreGrid th:first-child,
+    #scoreGrid td:first-child {
+        width: 78px;
+        padding-right: 8px;
+        font-size: 0.9rem;
+    }
+
+    .scoreInput {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        font-size: 1rem;
+    }
+
+    .setupButtons button,
+    #gameActions button {
+        width: 100%;
+        min-width: 0;
+    }
+
+}
+
+.gameStatus {
+
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+
+}
+
+.statusLabel {
+    font-size: 0.9rem;
+}
+
+.statusValue {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.gameHeader {
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 6px;
+
+}
+
+.gameStatus {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
