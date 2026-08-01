@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Five Crowns Scorekeeper</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>👑 Five Crowns Scorekeeper</h1>
+    </header>
+
+    <!-- ========================= -->
+    <!-- Setup Screen              -->
+    <!-- ========================= -->
+
+    <section id="setupScreen">
+
+        <div class="card">
+
+            <h2>New Game</h2>
+
+            <input
+                id="player1"
+                class="playerName"
+                type="text"
+                placeholder="Player 1">
+
+            <input
+                id="player2"
+                class="playerName"
+                type="text"
+                placeholder="Player 2">
+
+            <input
+                id="player3"
+                class="playerName"
+                type="text"
+                placeholder="Player 3">
+
+            <input
+                id="player4"
+                class="playerName"
+                type="text"
+                placeholder="Player 4">
+
+            <div id="message"
+                 class="message"></div>
+
+  <div class="setupButtons">
+
+    <button id="startButton">
+        Start New Game
+    </button>
+
+    <button
+        id="continueButton"
+        style="display:none;">
+        Continue Current Game
+    </button>
+
+</div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Game Screen               -->
+    <!-- ========================= -->
+
+    <section
+        id="gameScreen"
+        class="hidden">
+
+        <div class="card">
+
+            <div class="gameHeader">
+
+                <div>
+                    <div class="roundTitle">
+                        Current Round
+                    </div>
+
+                    <div
+                        id="currentRound"
+                        class="roundValue">
+                        3
+                    </div>
+                </div>
+
+                <div>
+                    <div class="roundTitle">
+                        Wild Card
+                    </div>
+
+                    <div
+                        id="wildCard"
+                        class="roundValue">
+                        3s
+                    </div>
+                </div>
+
+            </div>
+<div id="gameMessage"></div>
+
+<div id="gameActions"></div>
+
+<div id="scoreGrid"></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="storage.js"></script>
+<script src="game.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
