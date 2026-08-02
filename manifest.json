@@ -1,0 +1,15 @@
+{
+    "name": "Five Crowns Scorekeeper",
+    "short_name": "Five Crowns",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#efefef",
+    "theme_color": "#4b2e83",
+    "icons": [
+        {
+            "src": "icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
