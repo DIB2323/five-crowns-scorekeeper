@@ -129,6 +129,12 @@ function showSetupScreen() {
 
     setupScreen.classList.remove("hidden");
 
+    playerInputs.forEach(input => {
+
+        input.value = "";
+
+    });
+
     updateContinueButton();
 
     pageHeader.classList.remove("hidden");
@@ -585,12 +591,6 @@ function newGame() {
 game = null;
 
 showSetupScreen();
-
-    playerInputs.forEach(input => {
-
-    input.value = "";
-
-});
 
 }
 function updateAbandonGameButton() {
