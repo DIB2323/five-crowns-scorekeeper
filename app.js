@@ -41,8 +41,8 @@ const playerInputs = [
 
 ];
 
-const newGameButton =
-    document.getElementById("newGameButton");
+const abandonGameButton =
+    document.getElementById("abandonGameButton");
 
 
 //----------------------------------------------------
@@ -63,7 +63,7 @@ continueButton.addEventListener("click", () => {
 
 });
 
-newGameButton.addEventListener(
+abandonGameButton.addEventListener(
     "click",
     newGame
 );
@@ -120,7 +120,7 @@ function showGameScreen() {
 
     pageHeader.classList.add("hidden");
 
-    updateNewGameButton();
+    updateAbandonGameButton();
 }
 
 function showSetupScreen() {
@@ -133,7 +133,7 @@ function showSetupScreen() {
 
     pageHeader.classList.remove("hidden");
 
-    updateNewGameButton();
+    updateAbandonGameButton();
 
 }
 //----------------------------------------------------
@@ -536,7 +536,7 @@ function finishGame() {
 
     renderGame();
 
-    updateNewGameButton();
+    updateAbandonGameButton();
 
 }
 function isCurrentRoundComplete() {
@@ -593,16 +593,16 @@ showSetupScreen();
 });
 
 }
-function updateNewGameButton() {
+function updateAbandonGameButton() {
 
     if (game && !game.complete) {
 
-        newGameButton.style.display = "inline-block";
+        abandonGameButton.style.display = "inline-block";
 
     }
     else {
 
-        newGameButton.style.display = "none";
+        abandonGameButton.style.display = "none";
 
     }
 
