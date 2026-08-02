@@ -372,21 +372,23 @@ function handleKeyDown(event) {
 
     if (isGameComplete()) {
 
-        finishGame();
+    finishGame();
 
-    }
-    else if (isCurrentRoundComplete()) {
+}
+else if (isCurrentRoundComplete()) {
 
-        nextRound();
+    nextRound();
 
-        renderGame();
+    renderGame();
 
-    }
-    else {
+    focusCurrentRound();
 
-        moveHorizontal(event.target, 1);
+}
+else {
 
-    }
+    moveHorizontal(event.target, 1);
+
+}
 
     break;
 
