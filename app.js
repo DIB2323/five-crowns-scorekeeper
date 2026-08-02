@@ -296,7 +296,7 @@ function attachScoreEvents() {
 
    inputs.forEach(input => {
 
-    input.addEventListener("change", scoreChanged);
+    input.addEventListener("input", scoreChanged);
 
     input.addEventListener("keydown", handleKeyDown);
 
@@ -331,25 +331,7 @@ function scoreChanged(event) {
 
     updateTotals();
 
-    if (isGameComplete()) {
-
-        finishGame();
-
-    }
-    else {
-
-        if (isCurrentRoundComplete()) {
-
-            nextRound();
-
-            renderGame();
-
-            focusCurrentRound();
-        }
-
-        saveGame();
-
-    }
+    saveGame();
 
 }
 
@@ -385,10 +367,34 @@ function handleKeyDown(event) {
     switch (event.key) {
 
         case "Enter":
-        case "ArrowRight":
-            event.preventDefault();
-            moveHorizontal(event.target, 1);
-            break;
+
+    event.preventDefault();
+
+    if (isGameComplete()) {
+
+        finishGame();
+
+    }
+    else if (isCurrentRoundComplete()) {
+
+        nextRound();
+
+        renderGame();
+
+    }
+    else {
+
+        moveHorizontal(event.target, 1);
+
+    }
+
+    break;
+
+case "ArrowRight":
+
+    event.preventDefault();
+    moveHorizontal(event.target, 1);
+    break;
 
         case "ArrowLeft":
             event.preventDefault();
