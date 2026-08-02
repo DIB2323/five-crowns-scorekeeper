@@ -296,7 +296,7 @@ function attachScoreEvents() {
 
    inputs.forEach(input => {
 
-    input.addEventListener("input", scoreChanged);
+    input.addEventListener("change", scoreChanged);
 
     input.addEventListener("keydown", handleKeyDown);
 
