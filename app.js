@@ -41,6 +41,9 @@ const playerInputs = [
 
 ];
 
+const newGameButton =
+    document.getElementById("newGameButton");
+
 
 //----------------------------------------------------
 // Start Game
@@ -59,6 +62,11 @@ continueButton.addEventListener("click", () => {
     renderGame();
 
 });
+
+newGameButton.addEventListener(
+    "click",
+    newGame
+);
 
 function startGame() {
 
@@ -112,6 +120,7 @@ function showGameScreen() {
 
     pageHeader.classList.add("hidden");
 
+    updateNewGameButton();
 }
 
 function showSetupScreen() {
@@ -123,6 +132,8 @@ function showSetupScreen() {
     updateContinueButton();
 
     pageHeader.classList.remove("hidden");
+
+    updateNewGameButton();
 
 }
 //----------------------------------------------------
@@ -525,6 +536,8 @@ function finishGame() {
 
     renderGame();
 
+    updateNewGameButton();
+
 }
 function isCurrentRoundComplete() {
 
@@ -552,6 +565,44 @@ function focusCurrentRound() {
         firstInput.focus();
 
         firstInput.select();
+
+    }
+
+}
+function newGame() {
+
+    if (!confirm(
+        "Abandon current game?\n\n" +
+        "Your current scores will be lost."
+    )) {
+
+        return;
+
+    }
+
+   deleteSavedGame();
+
+game = null;
+
+showSetupScreen();
+
+    playerInputs.forEach(input => {
+
+    input.value = "";
+
+});
+
+}
+function updateNewGameButton() {
+
+    if (game && !game.complete) {
+
+        newGameButton.style.display = "inline-block";
+
+    }
+    else {
+
+        newGameButton.style.display = "none";
 
     }
 

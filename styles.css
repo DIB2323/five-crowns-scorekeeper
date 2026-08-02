@@ -383,3 +383,21 @@ button:disabled {
     align-items: baseline;
     gap: 6px;
 }
+#newGameButton {
+
+    background: none;
+    border: none;
+
+    color: var(--purple);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    padding: 4px 6px;
+
+}
+#newGameButton:hover {
+
+    text-decoration: underline;
+
+}
