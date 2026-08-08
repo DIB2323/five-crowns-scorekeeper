@@ -36,6 +36,8 @@ function createGame(playerNames) {
 
         currentRound: 0,
 
+        dealer: 0,
+
         scores: {},
 
         started: new Date().toISOString()
@@ -177,11 +179,15 @@ function isRoundComplete(round) {
 function nextRound() {
 
     if (game.currentRound < ROUNDS.length - 1) {
+
         game.currentRound++;
+
+        game.dealer =
+            (game.dealer + 1) % game.players.length;
+
     }
 
 }
-
 /*---------------------------------------------------
     Totals
 ---------------------------------------------------*/

@@ -25,6 +25,10 @@ const currentRoundLabel =
 const wildCardLabel =
     document.getElementById("wildCard");
 
+     const dealerName =
+    document.getElementById("dealerName");
+
+
 const scoreGrid =
     document.getElementById("scoreGrid");
 
@@ -44,6 +48,7 @@ const playerInputs = [
 const abandonGameButton =
     document.getElementById("abandonGameButton");
 
+   
 
 //----------------------------------------------------
 // Start Game
@@ -160,12 +165,14 @@ else {
 
     header.style.display = "flex";
 
-    currentRoundLabel.textContent =
-        getCurrentRound();
+currentRoundLabel.textContent =
+    getCurrentRound();
 
-    wildCardLabel.textContent =
-        getWildCard(getCurrentRound());
+wildCardLabel.textContent =
+    getWildCard(getCurrentRound());
 
+dealerName.textContent =
+    game.players[game.dealer];
 }
 
     buildScoreTable();

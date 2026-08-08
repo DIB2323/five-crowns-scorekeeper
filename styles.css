@@ -349,14 +349,6 @@ button:disabled {
 
 }
 
-.gameStatus {
-
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-
-}
-
 .statusLabel {
     font-size: 0.9rem;
 }
