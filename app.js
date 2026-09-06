@@ -543,6 +543,8 @@ function finishGame() {
     game.winners = winners;
     game.winningScore = lowestScore;
 
+    addGameToHistory();
+
     deleteSavedGame();
 
     updateContinueButton();

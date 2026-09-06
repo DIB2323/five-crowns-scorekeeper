@@ -3,6 +3,7 @@
 //----------------------------------------------------
 
 const STORAGE_KEY = "fiveCrownsCurrentGame";
+const HISTORY_KEY = "fiveCrownsHistory";
 
 function saveGame() {
 
@@ -37,5 +38,42 @@ function deleteSavedGame() {
 function hasSavedGame() {
 
     return localStorage.getItem(STORAGE_KEY) !== null;
+
+}
+function loadHistory() {
+
+    const data =
+        localStorage.getItem(HISTORY_KEY);
+
+    return data ? JSON.parse(data) : [];
+
+}
+function saveHistory(history) {
+
+    localStorage.setItem(
+        HISTORY_KEY,
+        JSON.stringify(history)
+    );
+
+}
+function addGameToHistory() {
+
+    const history = loadHistory();
+
+    history.unshift({
+
+        date: new Date().toISOString(),
+
+        players: [...game.players],
+
+        winners: [...game.winners],
+
+        winningScore: game.winningScore,
+
+        totals: getTotals()
+
+    });
+
+    saveHistory(history);
 
 }
