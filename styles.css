@@ -393,3 +393,44 @@ button:disabled {
     text-decoration: underline;
 
 }
+.historyCard {
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    margin-bottom: 12px;
+
+    background: #fafafa;
+
+}
+
+#leaderboard table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-bottom: 20px;
+
+}
+
+#leaderboard th,
+#leaderboard td {
+
+    border: 1px solid var(--border);
+
+    padding: 8px;
+
+    text-align: center;
+
+}
+
+#leaderboard th:first-child,
+#leaderboard td:first-child {
+
+    text-align: left;
+
+}

@@ -48,6 +48,21 @@ const playerInputs = [
 const abandonGameButton =
     document.getElementById("abandonGameButton");
 
+const historyScreen =
+    document.getElementById("historyScreen");
+
+const historyButton =
+    document.getElementById("historyButton");
+
+const backButton =
+    document.getElementById("backButton");
+
+const leaderboard =
+    document.getElementById("leaderboard");
+
+const historyList =
+    document.getElementById("historyList");
+
    
 
 //----------------------------------------------------
@@ -71,6 +86,16 @@ continueButton.addEventListener("click", () => {
 abandonGameButton.addEventListener(
     "click",
     newGame
+);
+
+historyButton.addEventListener(
+    "click",
+    showHistoryScreen
+);
+
+backButton.addEventListener(
+    "click",
+    showSetupScreen
 );
 
 function startGame() {
@@ -131,6 +156,7 @@ function showGameScreen() {
 function showSetupScreen() {
 
     gameScreen.classList.add("hidden");
+    historyScreen.classList.add("hidden");
 
     setupScreen.classList.remove("hidden");
 
@@ -147,6 +173,17 @@ function showSetupScreen() {
     updateAbandonGameButton();
 
 }
+
+function showHistoryScreen() {
+
+    setupScreen.classList.add("hidden");
+    gameScreen.classList.add("hidden");
+    historyScreen.classList.remove("hidden");
+
+    renderHistory();
+
+}
+
 //----------------------------------------------------
 // Render game
 //----------------------------------------------------
@@ -614,5 +651,106 @@ function updateAbandonGameButton() {
         abandonGameButton.style.display = "none";
 
     }
+
+}
+function renderHistory() {
+
+    const history = loadHistory();
+
+    if (history.length === 0) {
+
+        leaderboard.innerHTML =
+            "<p>No games played yet.</p>";
+
+        historyList.innerHTML = "";
+
+        return;
+
+    }
+
+    const stats = {};
+
+    history.forEach(game => {
+
+        game.players.forEach(player => {
+
+            if (!stats[player]) {
+
+                stats[player] = {
+                    games: 0,
+                    wins: 0,
+                    totalScore: 0
+                };
+
+            }
+
+            stats[player].games++;
+            stats[player].totalScore += game.totals[player];
+
+        });
+
+        game.winners.forEach(player => {
+
+            stats[player].wins++;
+
+        });
+
+    });
+
+    const players =
+        Object.entries(stats)
+            .sort((a, b) => b[1].wins - a[1].wins);
+
+    let html =
+        "<h3>Leaderboard</h3><table>";
+
+    html +=
+        "<tr><th>Player</th><th>Wins</th><th>Games</th><th>Average</th></tr>";
+
+    players.forEach(([player, s], index) => {
+
+        const crown =
+            index === 0 ? "👑 " : "";
+
+        const average =
+            (s.totalScore / s.games).toFixed(1);
+
+        html += `
+            <tr>
+                <td>${crown}${player}</td>
+                <td>${s.wins}</td>
+                <td>${s.games}</td>
+                <td>${average}</td>
+            </tr>`;
+    });
+
+    html += "</table>";
+
+    leaderboard.innerHTML = html;
+
+    html = "<h3>Recent Games</h3>";
+
+    history.forEach(game => {
+
+        const date =
+            new Date(game.date)
+                .toLocaleDateString(
+                    "en-AU",
+                    {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric"
+                    }
+                );
+
+        html += `
+            <div class="historyCard">
+                <strong>${date}</strong><br>
+                Winner: ${game.winners.join(", ")}
+                (${game.winningScore})
+            </div>`;
+    });
+
+    historyList.innerHTML = html;
 
 }
